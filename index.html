@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>好生学习中心 - 搜一下就能学</title>
+    <meta name="description" content="好生学习中心提供做题、资料、试听课，一搜索就能找到适合的学习内容。" />
+    <link rel="stylesheet" href="./styles.css?v=20260627-1" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="./script.js?v=20260627-1" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="好生学习中心">
+        <span class="brand-mark">好</span>
+        <span>好生学习中心</span>
+      </a>
+      <a class="simple-link" href="#contact">联系老师</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">做题 资料 试听课</span>
+          <h1>想学什么，搜一下就能看</h1>
+          <p>不用先研究一堆栏目。输入学习需求，马上看到题库、资料样本和试听课。</p>
+
+          <form class="search-box" role="search">
+            <i data-lucide="search"></i>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="例如：英语真题、数学资料、AI入门课"
+              aria-label="搜索学习内容"
+            />
+            <button type="submit">搜索</button>
+          </form>
+
+          <div class="hotwords" aria-label="热门搜索">
+            <button type="button" data-query="英语真题">英语真题</button>
+            <button type="button" data-query="数学资料">数学资料</button>
+            <button type="button" data-query="视频试听">视频试听</button>
+            <button type="button" data-query="APP刷题">APP刷题</button>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="三步开始学习">
+          <h2>三步就够了</h2>
+          <ol>
+            <li><strong>1</strong><span>搜索想学的内容</span></li>
+            <li><strong>2</strong><span>看样本或试听课</span></li>
+            <li><strong>3</strong><span>领取入口开始学</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="upload-section" id="sample-maker" aria-labelledby="sampleMakerTitle">
+        <div class="upload-card">
+          <div class="section-title">
+            <h2 id="sampleMakerTitle">上传课本，马上看复习分析样板</h2>
+            <p>拍一本教材封面或目录页，系统会生成题型、框架、重点难点、思维导图和复习规划样板。</p>
+          </div>
+
+          <form class="sample-form">
+            <label class="file-drop">
+              <input id="textbookImage" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required />
+              <i data-lucide="upload-cloud"></i>
+              <strong>上传教材图片</strong>
+              <span id="fileName">支持 JPG、PNG、WEBP、GIF，10MB 以内</span>
+            </label>
+            <input
+              id="sampleGoal"
+              name="goal"
+              type="text"
+              placeholder="可选：省份 / 年级 / 科目 / 考试目标，例如广东初三数学中考"
+            />
+            <button type="submit">生成分析样板</button>
+          </form>
+
+          <div class="sample-points" aria-label="样板包含内容">
+            <span>教材版本识别</span>
+            <span>历年题型方向</span>
+            <span>常考框架</span>
+            <span>重点难点</span>
+            <span>思维导图</span>
+            <span>复习指标</span>
+          </div>
+        </div>
+
+        <div class="sample-preview" aria-live="polite">
+          <div class="empty-sample" id="emptySample">
+            <i data-lucide="git-branch"></i>
+            <strong>复习分析样板会显示在这里</strong>
+            <span>用户上传教材后，会看到一张可转发的学习规划样板图。</span>
+          </div>
+          <img id="sampleImage" alt="根据课本生成的学习样本" hidden />
+          <p id="sampleStatus"></p>
+        </div>
+      </section>
+
+      <section class="results" id="results" aria-labelledby="resultsTitle">
+        <div class="section-title">
+          <h2 id="resultsTitle">推荐给你的学习入口</h2>
+          <p id="resultHint">先试试搜索，或直接点下面的入口。</p>
+        </div>
+
+        <div class="result-grid">
+          <article class="result-card" data-keywords="app 刷题 题库 练习 真题 错题">
+            <div class="icon blue"><i data-lucide="clipboard-check"></i></div>
+            <div>
+              <span>APP做题</span>
+              <h3>打开题库开始练</h3>
+              <p>适合想先做题、看错题、测水平的用户。</p>
+            </div>
+            <button type="button" data-toast="已模拟打开：APP做题入口">进入</button>
+          </article>
+
+          <article class="result-card" data-keywords="资料 样本 讲义 pdf 真题 清单 数学 英语">
+            <div class="icon green"><i data-lucide="file-text"></i></div>
+            <div>
+              <span>资料样本</span>
+              <h3>先看资料长什么样</h3>
+              <p>展示讲义、真题、清单样张，满意再领取完整资料。</p>
+            </div>
+            <button type="button" data-toast="已模拟打开：资料样本预览">预览</button>
+          </article>
+
+          <article class="result-card" data-keywords="视频 试听 课程 老师 直播 回放 AI 入门">
+            <div class="icon amber"><i data-lucide="play-square"></i></div>
+            <div>
+              <span>视频试听</span>
+              <h3>先听一节再决定</h3>
+              <p>短课试听、直播回放、老师讲解都可以放在这里。</p>
+            </div>
+            <button type="button" data-toast="已模拟播放：视频试听课">试听</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="plain-section">
+        <div class="section-title">
+          <h2>用户最关心的，只保留这几个</h2>
+          <p>页面不绕，重点就是找内容、看质量、拿入口。</p>
+        </div>
+        <div class="mini-grid">
+          <div><i data-lucide="mouse-pointer-click"></i><strong>不用注册先看看</strong><span>样本和试听先展示</span></div>
+          <div><i data-lucide="smartphone"></i><strong>手机上也好用</strong><span>适合微信里直接打开</span></div>
+          <div><i data-lucide="message-circle"></i><strong>需要再问老师</strong><span>底部放微信或电话</span></div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div>
+          <span class="eyebrow">领取学习入口</span>
+          <h2>告诉我你想学什么</h2>
+          <p>正式上线时，这里可以换成微信二维码、企业微信、表单或APP下载链接。</p>
+        </div>
+        <form class="lead-form">
+          <input type="text" placeholder="你想找什么资料或课程？" aria-label="学习需求" />
+          <input type="text" placeholder="微信 / 手机号" aria-label="联系方式" />
+          <button type="submit">提交给老师</button>
+        </form>
+      </section>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
